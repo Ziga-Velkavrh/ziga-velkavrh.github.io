@@ -1,251 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Sugrue & Darren Staloff Lectures</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --background-color: #f8f9fa;
-            --text-color: #333;
-            --light-gray: #e9ecef;
-            --dark-gray: #6c757d;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        
-        h1 {
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            margin-top: 40px;
-            font-weight: 500;
-            border-bottom: 2px solid var(--light-gray);
-            padding-bottom: 8px;
-        }
-        
-        .player-container {
-            margin-bottom: 30px;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .search-container {
-            margin: 20px 0;
-            position: relative;
-        }
-        
-        #search {
-            width: 100%;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 2px solid var(--light-gray);
-            border-radius: 30px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        
-        #search:focus {
-            border-color: var(--secondary-color);
-        }
-        
-        #search::placeholder {
-            color: var(--dark-gray);
-        }
-        
-        .lecture-count {
-            text-align: right;
-            color: var(--dark-gray);
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        
-        .lecture-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .lecture-item {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--light-gray);
-            transition: background-color 0.2s;
-        }
-        
-        .lecture-item:hover {
-            background-color: var(--light-gray);
-        }
-        
-        .lecture-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-            display: block;
-            transition: color 0.2s;
-        }
-        
-        .lecture-item a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 30px;
-            color: var(--dark-gray);
-            font-style: italic;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            .lecture-item {
-                padding: 10px 5px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael Sugrue Lecture Player</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .player-wrapper {
+      width: 100%;
+      max-width: 700px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Michael Sugrue & Darren Staloff Lectures</h1>
-        
-        <h2>Audio Player</h2>
-        <div class="player-container">
-            <iframe 
-                src="https://archive.org/embed/professor-michael-sugrue-dr.-darren-staloff?playlist=1&list_height=250" 
-                width="100%" 
-                height="250" 
-                frameborder="0" 
-                webkitallowfullscreen="true" 
-                mozallowfullscreen="true" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        
-        <h2>Lecture Archive (159 MP3s)</h2>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Search lectures...">
-            <div class="lecture-count" id="lecture-count">Showing 159 lectures</div>
-        </div>
-        
-        <ul class="lecture-list" id="lecture-list">
-            <!-- Lectures will be inserted here by JavaScript -->
-        </ul>
-    </div>
-
- Here's the complete corrected JavaScript code that fixes both issues (search filtering and clickable links):
-
-```javascript
-// List of all MP3 files from the archive.org directory
-const mp3Files = [
-    "01%20-%20Introduction.mp3",
-    "02%20-%20The%20Greek%20Polis%20and%20the%20Invention%20of%20Politics.mp3",
-    // ... (rest of the MP3 files array remains exactly the same)
-    "159%20-%20Conclusion%20III.mp3"
-];
-
-// Base URL for the MP3 files
-const baseUrl = "https://archive.org/download/professor-michael-sugrue-dr.-darren-staloff/";
-
-// Function to decode URL-encoded strings and clean up filenames
-function cleanTitle(filename) {
-    // Remove .mp3 extension
-    let title = filename.replace('.mp3', '');
-    // Decode URL encoding
-    title = decodeURIComponent(title);
-    // Remove leading numbers and dashes if present
-    title = title.replace(/^\d+\s*-\s*/, '');
-    return title;
-}
-
-// Function to render the lecture list
-function renderLectures(lectures) {
-    const lectureList = document.getElementById('lecture-list');
-    const lectureCount = document.getElementById('lecture-count');
-    
-    // Clear current list
-    lectureList.innerHTML = '';
-    
-    // Update count
-    lectureCount.textContent = `Showing ${lectures.length} lectures`;
-    
-    if (lectures.length === 0) {
-        // Show no results message
-        const noResults = document.createElement('div');
-        noResults.className = 'no-results';
-        noResults.textContent = 'No lectures match your search.';
-        lectureList.appendChild(noResults);
-    } else {
-        // Add lectures to the list
-        lectures.forEach(file => {
-            const listItem = document.createElement('li');
-            listItem.className = 'lecture-item';
-            
-            const link = document.createElement('a');
-            link.href = baseUrl + file;
-            link.target = '_blank';
-            link.textContent = cleanTitle(file);
-            
-            listItem.appendChild(link);
-            lectureList.appendChild(listItem);
-        });
-    }
-}
-
-// Function to filter lectures based on search input
-function filterLectures(searchTerm) {
-    const filtered = mp3Files.filter(file => {
-        const title = cleanTitle(file).toLowerCase();
-        return title.includes(searchTerm.toLowerCase());
-    });
-    renderLectures(filtered);
-}
-
-// Initialize the page
-document.addEventListener('DOMContentLoaded', () => {
-    // Sort lectures alphabetically by cleaned title
-    mp3Files.sort((a, b) => {
-        const titleA = cleanTitle(a).toLowerCase();
-        const titleB = cleanTitle(b).toLowerCase();
-        return titleA.localeCompare(titleB);
-    });
-    
-    // Render all lectures initially
-    renderLectures(mp3Files);
-    
-    // Set up search functionality
-    const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', (e) => {
-        filterLectures(e.target.value.trim());
-    });
-});
+  <div class="player-wrapper">
+    <h1>Michael Sugrue – Complete Lecture Playlist</h1>
+    <iframe 
+      src="https://archive.org/embed/professor-michael-sugrue-dr.-darren-staloff?playlist=1&list_height=250" 
+      allowfullscreen 
+      webkitallowfullscreen 
+      mozallowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
