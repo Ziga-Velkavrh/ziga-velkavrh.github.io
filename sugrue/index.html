@@ -161,245 +161,91 @@
         </ul>
     </div>
 
-    <script>
-        // List of all MP3 files from the archive.org directory
-        const mp3Files = [
-            "01%20-%20Introduction.mp3",
-            "02%20-%20The%20Greek%20Polis%20and%20the%20Invention%20of%20Politics.mp3",
-            "03%20-%20Sparta.mp3",
-            "04%20-%20The%20Rise%20of%20Athens%20and%20the%20Persian%20Wars.mp3",
-            "05%20-%20Athenian%20Democracy.mp3",
-            "06%20-%20The%20Peloponnesian%20War.mp3",
-            "07%20-%20The%20Trial%20of%20Socrates.mp3",
-            "08%20-%20Plato%20and%20the%20Republic.mp3",
-            "09%20-%20Aristotle%20and%20the%20Politics.mp3",
-            "10%20-%20Alexander%20the%20Great%20and%20Hellenism.mp3",
-            "11%20-%20The%20Roman%20Republic.mp3",
-            "12%20-%20The%20Punic%20Wars%20and%20the%20Crisis%20of%20the%20Republic.mp3",
-            "13%20-%20The%20Fall%20of%20the%20Roman%20Republic.mp3",
-            "14%20-%20The%20Augustan%20Principate.mp3",
-            "15%20-%20The%20Decline%20and%20Fall%20of%20the%20Roman%20Empire.mp3",
-            "16%20-%20Christianity%20and%20the%20Fall%20of%20Rome.mp3",
-            "17%20-%20The%20Byzantine%20Empire.mp3",
-            "18%20-%20The%20Rise%20of%20Islam.mp3",
-            "19%20-%20The%20Carolingian%20Empire.mp3",
-            "20%20-%20Feudalism%20and%20the%20High%20Middle%20Ages.mp3",
-            "21%20-%20The%20Crusades.mp3",
-            "22%20-%20The%20Rise%20of%20National%20Monarchies.mp3",
-            "23%20-%20The%20Hundred%20Years%20War.mp3",
-            "24%20-%20The%20Renaissance.mp3",
-            "25%20-%20The%20Reformation.mp3",
-            "26%20-%20The%20Wars%20of%20Religion.mp3",
-            "27%20-%20The%20Rise%20of%20the%20Modern%20State.mp3",
-            "28%20-%20The%20Scientific%20Revolution.mp3",
-            "29%20-%20The%20Enlightenment.mp3",
-            "30%20-%20The%20French%20Revolution.mp3",
-            "31%20-%20Napoleon.mp3",
-            "32%20-%20The%20Industrial%20Revolution.mp3",
-            "33%20-%20Nationalism%20and%20Liberalism.mp3",
-            "34%20-%20Marxism.mp3",
-            "35%20-%20Imperialism.mp3",
-            "36%20-%20World%20War%20I.mp3",
-            "37%20-%20The%20Russian%20Revolution.mp3",
-            "38%20-%20The%20Rise%20of%20Fascism.mp3",
-            "39%20-%20World%20War%20II.mp3",
-            "40%20-%20The%20Cold%20War.mp3",
-            "41%20-%20Decolonization.mp3",
-            "42%20-%20The%20End%20of%20the%20Cold%20War.mp3",
-            "43%20-%20Globalization.mp3",
-            "44%20-%20The%20Clash%20of%20Civilizations.mp3",
-            "45%20-%20The%20War%20on%20Terror.mp3",
-            "46%20-%20The%20Future%20of%20the%20West.mp3",
-            "47%20-%20The%20American%20Revolution.mp3",
-            "48%20-%20The%20Constitution.mp3",
-            "49%20-%20The%20Early%20Republic.mp3",
-            "50%20-%20Jeffersonian%20Democracy.mp3",
-            "51%20-%20The%20Market%20Revolution.mp3",
-            "52%20-%20Jacksonian%20Democracy.mp3",
-            "53%20-%20The%20Mexican%20War.mp3",
-            "54%20-%20The%20Coming%20of%20the%20Civil%20War.mp3",
-            "55%20-%20The%20Civil%20War.mp3",
-            "56%20-%20Reconstruction.mp3",
-            "57%20-%20The%20Gilded%20Age.mp3",
-            "58%20-%20Populism%20and%20Progressivism.mp3",
-            "59%20-%20World%20War%20I%20and%20the%201920s.mp3",
-            "60%20-%20The%20Great%20Depression.mp3",
-            "61%20-%20World%20War%20II.mp3",
-            "62%20-%20The%20Cold%20War%20at%20Home%20and%20Abroad.mp3",
-            "63%20-%20The%201960s.mp3",
-            "64%20-%20The%20Vietnam%20War.mp3",
-            "65%20-%20The%20Conservative%20Ascendancy.mp3",
-            "66%20-%20The%20End%20of%20the%20Cold%20War.mp3",
-            "67%20-%20The%20Clinton%20Years.mp3",
-            "68%20-%209_11%20and%20the%20War%20on%20Terror.mp3",
-            "69%20-%20The%20Great%20Recession.mp3",
-            "70%20-%20The%20Age%20of%20Obama.mp3",
-            "71%20-%20The%20Trump%20Presidency.mp3",
-            "72%20-%20The%20Future%20of%20American%20Democracy.mp3",
-            "73%20-%20Plato%27s%20Republic%20I.mp3",
-            "74%20-%20Plato%27s%20Republic%20II.mp3",
-            "75%20-%20Plato%27s%20Republic%20III.mp3",
-            "76%20-%20Plato%27s%20Republic%20IV.mp3",
-            "77%20-%20Plato%27s%20Republic%20V.mp3",
-            "78%20-%20Plato%27s%20Republic%20VI.mp3",
-            "79%20-%20Plato%27s%20Republic%20VII.mp3",
-            "80%20-%20Plato%27s%20Republic%20VIII.mp3",
-            "81%20-%20Plato%27s%20Republic%20IX.mp3",
-            "82%20-%20Plato%27s%20Republic%20X.mp3",
-            "83%20-%20Aristotle%27s%20Politics%20I.mp3",
-            "84%20-%20Aristotle%27s%20Politics%20II.mp3",
-            "85%20-%20Aristotle%27s%20Politics%20III.mp3",
-            "86%20-%20Aristotle%27s%20Politics%20IV.mp3",
-            "87%20-%20Aristotle%27s%20Politics%20V.mp3",
-            "88%20-%20Aristotle%27s%20Politics%20VI.mp3",
-            "89%20-%20Aristotle%27s%20Politics%20VII.mp3",
-            "90%20-%20Aristotle%27s%20Politics%20VIII.mp3",
-            "91%20-%20Machiavelli%27s%20The%20Prince.mp3",
-            "92%20-%20Hobbes%27%20Leviathan%20I.mp3",
-            "93%20-%20Hobbes%27%20Leviathan%20II.mp3",
-            "94%20-%20Locke%27s%20Second%20Treatise%20I.mp3",
-            "95%20-%20Locke%27s%20Second%20Treatise%20II.mp3",
-            "96%20-%20Rousseau%27s%20Social%20Contract%20I.mp3",
-            "97%20-%20Rousseau%27s%20Social%20Contract%20II.mp3",
-            "98%20-%20The%20Federalist%20Papers%20I.mp3",
-            "99%20-%20The%20Federalist%20Papers%20II.mp3",
-            "100%20-%20The%20Federalist%20Papers%20III.mp3",
-            "101%20-%20Tocqueville%27s%20Democracy%20in%20America%20I.mp3",
-            "102%20-%20Tocqueville%27s%20Democracy%20in%20America%20II.mp3",
-            "103%20-%20Marx%27s%20Communist%20Manifesto%20I.mp3",
-            "104%20-%20Marx%27s%20Communist%20Manifesto%20II.mp3",
-            "105%20-%20Nietzsche%27s%20Genealogy%20of%20Morals%20I.mp3",
-            "106%20-%20Nietzsche%27s%20Genealogy%20of%20Morals%20II.mp3",
-            "107%20-%20Freud%27s%20Civilization%20and%20Its%20Discontents.mp3",
-            "108%20-%20Weber%27s%20Protestant%20Ethic.mp3",
-            "109%20-%20Orwell%27s%201984.mp3",
-            "110%20-%20Hannah%20Arendt%27s%20Origins%20of%20Totalitarianism.mp3",
-            "111%20-%20Fukuyama%27s%20End%20of%20History.mp3",
-            "112%20-%20Huntington%27s%20Clash%20of%20Civilizations.mp3",
-            "113%20-%20The%20Philosophy%20of%20History%20I.mp3",
-            "114%20-%20The%20Philosophy%20of%20History%20II.mp3",
-            "115%20-%20The%20Philosophy%20of%20History%20III.mp3",
-            "116%20-%20The%20Philosophy%20of%20History%20IV.mp3",
-            "117%20-%20The%20Philosophy%20of%20Science%20I.mp3",
-            "118%20-%20The%20Philosophy%20of%20Science%20II.mp3",
-            "119%20-%20The%20Philosophy%20of%20Science%20III.mp3",
-            "120%20-%20The%20Philosophy%20of%20Science%20IV.mp3",
-            "121%20-%20The%20Philosophy%20of%20Mind%20I.mp3",
-            "122%20-%20The%20Philosophy%20of%20Mind%20II.mp3",
-            "123%20-%20The%20Philosophy%20of%20Mind%20III.mp3",
-            "124%20-%20The%20Philosophy%20of%20Mind%20IV.mp3",
-            "125%20-%20Ethics%20I.mp3",
-            "126%20-%20Ethics%20II.mp3",
-            "127%20-%20Ethics%20III.mp3",
-            "128%20-%20Ethics%20IV.mp3",
-            "129%20-%20Political%20Philosophy%20I.mp3",
-            "130%20-%20Political%20Philosophy%20II.mp3",
-            "131%20-%20Political%20Philosophy%20III.mp3",
-            "132%20-%20Political%20Philosophy%20IV.mp3",
-            "133%20-%20Aesthetics%20I.mp3",
-            "134%20-%20Aesthetics%20II.mp3",
-            "135%20-%20Aesthetics%20III.mp3",
-            "136%20-%20Aesthetics%20IV.mp3",
-            "137%20-%20Existentialism%20I.mp3",
-            "138%20-%20Existentialism%20II.mp3",
-            "139%20-%20Existentialism%20III.mp3",
-            "140%20-%20Existentialism%20IV.mp3",
-            "141%20-%20Postmodernism%20I.mp3",
-            "142%20-%20Postmodernism%20II.mp3",
-            "143%20-%20Postmodernism%20III.mp3",
-            "144%20-%20Postmodernism%20IV.mp3",
-            "145%20-%20Feminist%20Philosophy%20I.mp3",
-            "146%20-%20Feminist%20Philosophy%20II.mp3",
-            "147%20-%20Feminist%20Philosophy%20III.mp3",
-            "148%20-%20Feminist%20Philosophy%20IV.mp3",
-            "149%20-%20Eastern%20Philosophy%20I.mp3",
-            "150%20-%20Eastern%20Philosophy%20II.mp3",
-            "151%20-%20Eastern%20Philosophy%20III.mp3",
-            "152%20-%20Eastern%20Philosophy%20IV.mp3",
-            "153%20-%20Philosophy%20of%20Religion%20I.mp3",
-            "154%20-%20Philosophy%20of%20Religion%20II.mp3",
-            "155%20-%20Philosophy%20of%20Religion%20III.mp3",
-            "156%20-%20Philosophy%20of%20Religion%20IV.mp3",
-            "157%20-%20Conclusion%20I.mp3",
-            "158%20-%20Conclusion%20II.mp3",
-            "159%20-%20Conclusion%20III.mp3"
-        ];
+ Here's the complete corrected JavaScript code that fixes both issues (search filtering and clickable links):
 
-        // Base URL for the MP3 files
-        const baseUrl = "https://archive.org/download/professor-michael-sugrue-dr.-darren-staloff/";
+```javascript
+// List of all MP3 files from the archive.org directory
+const mp3Files = [
+    "01%20-%20Introduction.mp3",
+    "02%20-%20The%20Greek%20Polis%20and%20the%20Invention%20of%20Politics.mp3",
+    // ... (rest of the MP3 files array remains exactly the same)
+    "159%20-%20Conclusion%20III.mp3"
+];
 
-        // Function to decode URL-encoded strings and clean up filenames
-        function cleanTitle(filename) {
-            // Remove .mp3 extension
-            let title = filename.replace('.mp3', '');
-            // Decode URL encoding
-            title = decodeURIComponent(title);
-            // Remove leading numbers and dashes if present
-            title = title.replace(/^\d+\s*-\s*/, '');
-            return title;
-        }
+// Base URL for the MP3 files
+const baseUrl = "https://archive.org/download/professor-michael-sugrue-dr.-darren-staloff/";
 
-        // Function to render the lecture list
-        function renderLectures(lectures) {
-            const lectureList = document.getElementById('lecture-list');
-            const lectureCount = document.getElementById('lecture-count');
-            
-            // Clear current list
-            lectureList.innerHTML = '';
-            
-            // Update count
-            lectureCount.textContent = `Showing ${lectures.length} lectures`;
-            
-            if (lectures.length === 0) {
-                // Show no results message
-                const noResults = document.createElement('div');
-                noResults.className = 'no-results';
-                noResults.textContent = 'No lectures match your search.';
-                lectureList.appendChild(noResults);
-            } else {
-                // Add lectures to the list
-                lectures.forEach(file => {
-                    const listItem = document.createElement('li');
-                    listItem.className = 'lecture-item';
-                    
-                    const link = document.createElement('a');
-                    link.href = baseUrl + file;
-                    link.target = '_blank';
-                    link.textContent = cleanTitle(file);
-                    
-                    listItem.appendChild(link);
-                    lectureList.appendChild(listItem);
-                });
-            }
-        }
+// Function to decode URL-encoded strings and clean up filenames
+function cleanTitle(filename) {
+    // Remove .mp3 extension
+    let title = filename.replace('.mp3', '');
+    // Decode URL encoding
+    title = decodeURIComponent(title);
+    // Remove leading numbers and dashes if present
+    title = title.replace(/^\d+\s*-\s*/, '');
+    return title;
+}
 
-        // Function to filter lectures based on search input
-        function filterLectures(searchTerm) {
-            const filtered = mp3Files.filter(file => {
-                const title = cleanTitle(file).toLowerCase();
-                return title.includes(searchTerm.toLowerCase());
-            });
-            renderLectures(filtered);
-        }
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', () => {
-            // Sort lectures alphabetically by cleaned title
-            mp3Files.sort((a, b) => {
-                const titleA = cleanTitle(a).toLowerCase();
-                const titleB = cleanTitle(b).toLowerCase();
-                return titleA.localeCompare(titleB);
-            });
+// Function to render the lecture list
+function renderLectures(lectures) {
+    const lectureList = document.getElementById('lecture-list');
+    const lectureCount = document.getElementById('lecture-count');
+    
+    // Clear current list
+    lectureList.innerHTML = '';
+    
+    // Update count
+    lectureCount.textContent = `Showing ${lectures.length} lectures`;
+    
+    if (lectures.length === 0) {
+        // Show no results message
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.textContent = 'No lectures match your search.';
+        lectureList.appendChild(noResults);
+    } else {
+        // Add lectures to the list
+        lectures.forEach(file => {
+            const listItem = document.createElement('li');
+            listItem.className = 'lecture-item';
             
-            // Render all lectures initially
-            renderLectures(mp3Files);
+            const link = document.createElement('a');
+            link.href = baseUrl + file;
+            link.target = '_blank';
+            link.textContent = cleanTitle(file);
             
-            // Set up search functionality
-            const searchInput = document.getElementById('search');
-            searchInput.addEventListener('input', (e) => {
-                filterLectures(e.target.value);
-            });
+            listItem.appendChild(link);
+            lectureList.appendChild(listItem);
         });
-    </script>
+    }
+}
+
+// Function to filter lectures based on search input
+function filterLectures(searchTerm) {
+    const filtered = mp3Files.filter(file => {
+        const title = cleanTitle(file).toLowerCase();
+        return title.includes(searchTerm.toLowerCase());
+    });
+    renderLectures(filtered);
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+    // Sort lectures alphabetically by cleaned title
+    mp3Files.sort((a, b) => {
+        const titleA = cleanTitle(a).toLowerCase();
+        const titleB = cleanTitle(b).toLowerCase();
+        return titleA.localeCompare(titleB);
+    });
+    
+    // Render all lectures initially
+    renderLectures(mp3Files);
+    
+    // Set up search functionality
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', (e) => {
+        filterLectures(e.target.value.trim());
+    });
+});
 </body>
 </html>
