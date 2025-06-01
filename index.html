@@ -181,3 +181,45 @@
   </footer>
 </body>
 </html>
+
+body {
+  background-color: #111; /* ali razmisli o media query za light/dark */
+  color: #f0f0f0; /* svetla sivina, boljša kot čista bela */
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 60px;
+}
+
+h1, h2, h3, .subtitle {
+  color: #e0e0e0;
+  text-shadow: 1px 1px 2px #000; /* subtilna senca za boljši kontrast */
+}
+
+a {
+  color: #4db2ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #88ccff;
+  text-decoration: underline;
+}
+
+img {
+  cursor: pointer;
+  width: 280px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-top: 14px;
+  color: #ccc;
+}
