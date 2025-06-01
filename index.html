@@ -96,6 +96,68 @@
     <p>This site hosts public audio archives, transcriptions, and personal projects.</p>
   </header>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CorvusCortex</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 100px;
+    }
+
+    img {
+      cursor: pointer;
+      width: 300px;
+      transition: transform 0.2s;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    audio {
+      display: none;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to CorvusCortex</h1>
+  <img id="logo" src="media/corvuscortex.com scientist LOGO.PNG" alt="CorvusCortex Logo">
+  <p class="subtitle">Click the logo to play theme</p>
+
+  <audio id="theme">
+    <source src="media/CorvusCortexTheme.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const logo = document.getElementById('logo');
+    const theme = document.getElementById('theme');
+
+    logo.addEventListener('click', () => {
+      if (theme.paused) {
+        theme.play();
+      } else {
+        theme.pause();
+        theme.currentTime = 0;
+      }
+    });
+  </script>
+</body>
+</html>
+
+
   <hr>
 
   <div class="highlight">
