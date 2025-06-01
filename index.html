@@ -1,193 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CorvusCortex.com - Audio Archives & Projects</title>
-  <meta name="description" content="Hosting public audio archives, transcriptions, and personal projects including the Michael Sugrue & Darren Staloff Lecture Archive.">
-  <style>
-    :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #0077cc;
-      --text-color: #333;
-      --light-text: #666;
-    }
-    
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 0 20px;
-      color: var(--text-color);
-    }
-    
-    h1 {
-      color: var(--primary-color);
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    
-    a {
-      color: var(--secondary-color);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    
-    a:hover {
-      text-decoration: underline;
-      opacity: 0.9;
-    }
-    
-    hr {
-      margin: 2rem 0;
-      border: 0;
-      height: 1px;
-      background-color: #eee;
-    }
-    
-    .highlight {
-      text-align: center;
-      font-weight: 600;
-    }
-    
-    .cover-image {
-      display: block;
-      margin: 2.5rem auto 0.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 100%;
-      height: auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .cover-image:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    
-    .caption {
-      text-align: center;
-      font-size: 0.875rem;
-      color: var(--light-text);
-      margin-bottom: 2rem;
-    }
-    
-    footer {
-      margin-top: 3rem;
-      font-size: 0.875rem;
-      color: var(--light-text);
-    }
-    
-    @media (max-width: 600px) {
-      body {
-        margin: 30px auto;
-      }
-      
-      .cover-image {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Welcome to CorvusCortex.com</h1>
-    <p>This site hosts public audio archives, transcriptions, and personal projects.</p>
-  </header>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CorvusCortex</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      padding-top: 100px;
-    }
-
-    img {
-      cursor: pointer;
-      width: 300px;
-      transition: transform 0.2s;
-    }
-
-    img:hover {
-      transform: scale(1.05);
-    }
-
-    audio {
-      display: none;
-    }
-
-    .subtitle {
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #ccc;
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to CorvusCortex</h1>
-  <img id="logo" src="media/corvuscortex.com scientist LOGO.PNG" alt="CorvusCortex Logo">
-  <p class="subtitle">Click the logo to play theme</p>
-
-  <audio id="theme">
-    <source src="media/CorvusCortexTheme.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <script>
-    const logo = document.getElementById('logo');
-    const theme = document.getElementById('theme');
-
-    logo.addEventListener('click', () => {
-      if (theme.paused) {
-        theme.play();
-      } else {
-        theme.pause();
-        theme.currentTime = 0;
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-  <hr>
-
-  <div class="highlight">
-    <p><strong>🎧 New:</strong> <a href="/sugrue/">Explore the full Michael Sugrue & Darren Staloff Lecture Archive (159 MP3s)</a></p>
-  </div>
-
-  <a href="/sugrue/" aria-label="Michael Sugrue Lecture Archive">
-    <img src="media/sugrue_cover.png" alt="Michael Sugrue Lecture Cover Image" class="cover-image" width="300">
-  </a>
-
-  <p class="caption"><em>Lectures that changed how we understand Western thought.</em></p>
-
-  <hr>
-
-  <p>More collections and content coming soon.</p>
-
-  <hr>
-
-  <footer>
-    <p>Žiga Velkavrh • <a href="mailto:velkavrh.ziga@gmail.com">velkavrh.ziga@gmail.com</a></p>
-  </footer>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CorvusCortex.com</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hosting public audio archives, transcriptions, and personal projects including the Michael Sugrue & Darren Staloff Lecture Archive." />
 
   <style>
     :root {
@@ -210,20 +27,24 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding: 60px 20px;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+      line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
     }
 
     h1 {
       font-size: 2em;
       margin-bottom: 0.3em;
+      text-align: center;
       text-shadow: 1px 1px 2px #000;
     }
 
     p.subtitle {
       font-size: 1.2em;
       margin-top: 0;
+      text-align: center;
       color: var(--text-color);
     }
 
@@ -238,9 +59,11 @@
     }
 
     img {
+      display: block;
       cursor: pointer;
-      width: 280px;
+      margin: 30px auto 10px;
       max-width: 90%;
+      width: 300px;
       border-radius: 12px;
       box-shadow: 0 0 12px var(--shadow-color);
       transition: transform 0.2s ease-in-out;
@@ -273,10 +96,32 @@
       color: var(--bg-color);
     }
 
+    .caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      margin-bottom: 2rem;
+    }
+
     footer {
       margin-top: 60px;
-      font-size: 0.9em;
+      font-size: 0.875rem;
       color: var(--text-color);
+      text-align: center;
+    }
+
+    hr {
+      margin: 2rem auto;
+      border: 0;
+      height: 1px;
+      background-color: #444;
+      width: 80%;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 30px auto;
+      }
     }
   </style>
 </head>
@@ -286,30 +131,30 @@
   <h1>Welcome to CorvusCortex.com</h1>
   <p class="subtitle">This site hosts public audio archives, transcriptions, and personal projects.</p>
 
-  <h2>Welcome to CorvusCortex</h2>
-  <img id="logo" src="media/corvuscortex.com scientist LOGO.PNG" alt="CorvusCortex Logo">
+  <img id="logo" src="media/corvuscortex.com scientist LOGO.PNG" alt="CorvusCortex Logo" />
   <p class="subtitle">Click the logo to play theme</p>
 
   <audio id="theme">
-    <source src="media/CorvusCortexTheme.mp3" type="audio/mpeg">
+    <source src="media/CorvusCortexTheme.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
-  <hr style="margin: 40px auto; width: 60%; border-color: var(--text-color);">
+  <hr />
 
-  <p>
+  <p class="subtitle">
     🎧 <strong>New:</strong>
-    <a href="https://www.corvuscortex.com/sugrue/" target="_blank">
+    <a href="/sugrue/" target="_blank">
       Explore the full Michael Sugrue & Darren Staloff Lecture Archive (159 MP3s)
     </a>
   </p>
 
-  <img src="media/sugrue_cover.png" alt="Michael Sugrue Cover" style="margin-top: 30px; max-width: 300px;">
+  <a href="/sugrue/">
+    <img src="media/sugrue_cover.png" alt="Michael Sugrue Cover" />
+  </a>
 
-  <p class="subtitle" style="margin-top: 10px;">
-    Discover 150+ legendary lectures<br>
-    <strong>Stream or download for FREE</strong> at <em>CorvusCortex.com</em>
-  </p>
+  <p class="caption"><em>Lectures that changed how we understand Western thought.</em></p>
+
+  <hr />
 
   <footer>
     <p>More collections and content coming soon.</p>
@@ -339,7 +184,7 @@
       setTheme(current === "light" ? "dark" : "light");
     });
 
-    // Play audio on logo click
+    // Play/pause audio on logo click
     const logo = document.getElementById("logo");
     const theme = document.getElementById("theme");
 
